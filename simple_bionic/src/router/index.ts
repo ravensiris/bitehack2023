@@ -10,6 +10,11 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: "/reader",
+      name: "reader",
+      component: import("../views/user/Reader.vue")
+    },
+    {
       path: "/admin",
       name: "admin",
       children: [
