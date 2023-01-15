@@ -3,6 +3,9 @@ import { useSlots } from 'vue'
 
 const bionicizeText = (text: String) => {
     const words = text.split(" ").map((word) => {
+        if (word.length == 1){
+            return `<b>${word}</b>`
+        }
         const middle = Math.floor(word.length / 2);
         const first_half = word.slice(0, middle);
         const second_half = word.slice(middle);
