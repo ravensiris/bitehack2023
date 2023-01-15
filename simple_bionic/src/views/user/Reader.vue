@@ -7,8 +7,14 @@ const next = () => {
     page.value += 1
 }
 const prev = () => {
+    if (page.value < 1) return;
     page.value -= 1
 }
+
+window.addEventListener('keyup', function(e) {
+    const move = e.key == "ArrowLeft" ? -1 : 1;
+    page.value += move
+});
 </script>
 
 <template>
