@@ -1,19 +1,40 @@
 <script setup lang="ts">
-import BionicText from "../../components/BionicText.vue";
+import TextFetcher from "../../components/TextFetcher.vue";
+import {ref} from "vue"
+
+const page = ref(0)
+const next = () => {
+    page.value += 1
+}
+const prev = () => {
+    page.value -= 1
+}
 </script>
 
 <template>
+
+   <RouterLink to="/exercise" class="px-8 py-4 text-3xl rounded-xl m-8 fixed shadow-md bg-[white] flex items-center w-min"> 
+   WRÓĆ 
+  </RouterLink>
+
+
+
+
     <main class="w-screen h-screen flex">
-        <div class="w-[92vw] h-[80vh] m-auto">
-            <div class="w-full h-full bg-[#D9D9D9] flex items-center">
-                <a href="#">
-                    <img class="my-auto w-[80rem] -translate-x-1/2 h-auto" src="../../assets/arrow-left.svg" alt="Previous page" />
+        <div class="w-[92vw] h-[78vh] m-auto">
+            <div class="w-full h-full bg-[#D9D9D9] p-20">
+                <a href="#" :onclick="prev" class="absolute top-1/2 -translate-y-1/2 left-4">
+                    <img class="w-32 h-32" src="../../assets/arrow-left.svg" alt="Previous page" />
                 </a>
-                <BionicText class="text-5xl leading-relaxed">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, alias iusto! Iste cumque, atque eius omnis culpa quas placeat dolores quasi id? Fugiat obcaecati assumenda molestiae suscipit porro? Qui rem maiores recusandae et voluptatibus. Nesciunt reiciendis eaque deleniti tenetur esse ex omnis quasi quidem veritatis ducimus, at debitis! Ullam atque tempora provident, consequuntur dignissimos, quam, nisi assumenda libero ea ab esse eos officia minus quos rem consequatur eius quaerat possimus ad? Ut sit impedit expedita aut! Sapiente itaque culpa, voluptas nam fugiat sunt aliquam delectus. Nisi, maxime blanditiis voluptas sunt corporis repudiandae inventore vero. Ab quo, iure explicabo, qui cum laudantium illo architecto repudiandae sed ut vel voluptatum dignissimos saepe harum laborum, tempore quasi velit deserunt totam itaque aut. Sed eos, praesentium nisi excepturi, sequi aspernatur a quasi impedit velit omnis sapiente maxime ad! Dolor sit cumque cum, magni reiciendis voluptatem quos ut ducimus sunt. Veritatis recusandae nihil exercitationem iure!    
-                </BionicText>
-                <a href="#">
-                    <img class="my-auto w-[80rem] translate-x-1/2 h-auto" src="../../assets/arrow-right.svg" alt="Next page" />
+                <div class="overflow-hidden">
+                    <Suspense :key="page">
+                        <TextFetcher :page="page" :words="100"></TextFetcher>
+                        <template #fallback>
+                        </template>
+                    </Suspense>
+                </div>
+                <a href="#" :onclick="next" class="absolute top-1/2 -translate-y-1/2 right-4">
+                    <img class="w-32 h-32"  src="../../assets/arrow-right.svg" alt="Next page" />
                 </a>
             </div>
         </div>
