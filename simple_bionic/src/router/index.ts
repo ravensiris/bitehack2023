@@ -15,6 +15,11 @@ const router = createRouter({
       component: import("../views/user/Reader.vue")
     },
     {
+      path: "/upload-text",
+      name: "upload-text",
+      component: import("../views/user/UploadText.vue")
+    },
+    {
       path: "/exercise",
       name: "exercise",
       children: [

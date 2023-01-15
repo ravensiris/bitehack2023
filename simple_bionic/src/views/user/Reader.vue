@@ -16,10 +16,6 @@ const prev = () => {
    <RouterLink to="/exercise" class="px-8 py-4 text-3xl rounded-xl m-8 fixed shadow-md bg-[white] flex items-center w-min"> 
    WRÓĆ 
   </RouterLink>
-
-
-
-
     <main class="w-screen h-screen flex">
         <div class="w-[92vw] h-[78vh] m-auto">
             <div class="w-full h-full bg-[#D9D9D9] p-20">
