@@ -15,6 +15,20 @@ const router = createRouter({
       component: import("../views/user/Reader.vue")
     },
     {
+      path: "/exercise",
+      name: "exercise",
+      children: [
+        {
+          path: "",
+          component: import("../views/user/ExerciseList.vue")
+        },
+        {
+          path: ":id",
+          component: () => import("../views/user/Reader.vue")
+        }
+      ]
+    },
+    {
       path: "/admin",
       name: "admin",
       children: [

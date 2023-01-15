@@ -6,9 +6,9 @@ import MainButton from "../../components/MainButton.vue";
   <main>
     <div class="flex justify-center items-center h-screen">
         <div class="flex flex-col space-y-12">
-          <MainButton class="bg-coffee" to="/exercise">Zadania</MainButton>
-          <MainButton class="bg-coffee-milk" to="/about">Wgraj tekst</MainButton>
-          <MainButton class="bg-dark-gray" to="#">Wyjdź</MainButton>
+          <MainButton class="bg-yellow" to="/exercise/1">Zadanie 1</MainButton>
+          <MainButton class="bg-green" to="/exercise/2">Zadanie 2</MainButton>
+          <MainButton class="bg-purple" to="/exercise/3">Zadanie 3</MainButton>
       </div>
     </div>
   </main>
