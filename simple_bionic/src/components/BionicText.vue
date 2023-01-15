@@ -2,7 +2,8 @@
 import { useSlots } from 'vue'
 
 const bionicizeText = (text: String) => {
-    const words = text.split(" ").map((word) => {
+    const words = text.split(" ").map((_word_) => {
+        const word = _word_.trim()
         if (word.length == 1){
             return `<b>${word}</b>`
         }
@@ -17,7 +18,6 @@ const bionicizeText = (text: String) => {
 const slots = useSlots()
 const text = slots.default!().map((elem) => elem.children).join(" ")
 const bionicText = bionicizeText(text)
-
 </script>
 
 <template>
